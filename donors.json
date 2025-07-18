@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Harshith B",
+        "blood_group": "O+",
+        "city": "Mangalore",
+        "contact": "9740502890"
+    },
+    {
+        "name": "B N BHASKAR NAIK",
+        "age": "55",
+        "blood_group": "B-",
+        "city": "Mangalore",
+        "contact": "9591346167",
+        "message": ""
+    },
+    {
+        "name": "bfndfjn",
+        "age": "55",
+        "blood_group": "AB+",
+        "city": "Bangalore",
+        "contact": "987451256",
+        "message": ""
+    },
+    {
+        "name": "John Donor",
+        "age": "28",
+        "blood_group": "A+",
+        "city": "Mumbai",
+        "contact": "9876543210",
+        "message": ""
+    }
+]

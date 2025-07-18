@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+
+{% block title %}Home | Blood Donation{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section scroll-fade">
+    <h1>Be the Lifeline Someone Needs</h1>
+    <p>Your blood can save lives. Join the movement today.</p>
+    <a href="{{ url_for('donate') }}" class="cta-button">Donate Now</a>
+</section>
+
+<!-- Awareness Section -->
+<section class="info-section scroll-fade">
+    <h2>Why Blood Donation Matters</h2>
+    <p>Every 2 seconds, someone in the world needs blood. Donating blood can save up to three lives and contributes to a healthier society. Your contribution can make an immeasurable difference.</p>
+    <blockquote>
+        “A single pint can save three lives, a single gesture can create a million smiles.”
+    </blockquote>
+    <ul>
+        <li>Blood cannot be manufactured — it can only come from generous donors.</li>
+        <li>Regular donation helps prevent heart and liver ailments caused by iron overload.</li>
+        <li>One donation can save multiple lives during surgeries, accidents, and illnesses.</li>
+    </ul>
+</section>
+
+<!-- History of Blood Donation -->
+<section class="info-section history-block fade-left scroll-fade visible">
+    <img src="{{ url_for('static', filename='landsteiner.jpg') }}" alt="Karl Landsteiner" class="history-img">
+    <div class="history-text">
+        <h2>The History of Blood Donation</h2>
+        <p>In 1901, Karl Landsteiner discovered the ABO blood group system, making safe blood transfusions possible. Since then, the practice of donating blood has evolved into a global life-saving movement.</p>
+        <blockquote>“It is not how much we give, but how much love we put into giving.” – Mother Teresa</blockquote>
+    </div>
+</section>
+
+<!-- Timeline Image -->
+<img src="{{ url_for('static', filename='blood-timeline.webp') }}" alt="Donation Timeline" class="timeline-img scroll-fade">
+
+<!-- Learn More -->
+<section class="info-section awareness-box scroll-fade">
+    <h1>Learn About Donation</h1>
+    <p>Understanding blood donation helps dispel myths and encourages more people to participate.</p>
+    <ul class="awareness-list">
+        <li><span>🩸</span> Blood donation is safe, fast, and simple.</li>
+        <li><span>💉</span> You can donate once every 3 months.</li>
+        <li><span>❤️</span> Donating blood improves your cardiovascular health.</li>
+    </ul>
+    <p class="final-line">You don’t have to be a doctor to save lives — just donate blood.</p>
+</section>
+{% endblock %}

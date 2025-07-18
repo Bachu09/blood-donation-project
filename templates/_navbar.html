@@ -1,0 +1,27 @@
+{% set path = request.path %}
+<nav class="navbar">
+    <a href="/" class="{% if path == '/' %}active{% endif %}">Home</a>
+    <a href="/about" class="{% if path == '/about' %}active{% endif %}">About Us</a>
+    <a href="/donate" class="{% if path == '/donate' %}active{% endif %}">Donate Now</a>
+    <a href="/donors" class="{% if path == '/donors' %}active{% endif %}">View Donors</a>
+    <a href="/request" class="{% if path == '/request' %}active{% endif %}">Request Blood</a>
+    <a href="/join" class="{% if path == '/join' %}active{% endif %}">Join Us</a>
+    <a href="/camp" class="{% if path == '/camp' %}active{% endif %}">Organize Camp</a>
+    <a href="/contact" class="{% if path == '/contact' %}active{% endif %}">Contact Us</a>
+    <div class="menu-wrapper">
+  <button id="menuToggle"><i class="fas fa-bars"></i> Menu</button>
+  <div id="menuDropdown" class="menu-dropdown">
+    <a href="/">🏠 Home</a>
+    <a href="/about">📖 About Us</a>
+    <a href="/team">👥 Our Team</a>
+    <a href="/donate">🩸 Donate Now</a>
+    <a href="/donors">🔎 View Donors</a>
+    <a href="/request">🆘 Request Blood</a>
+    <a href="/join">➕ Join Us</a>
+    <a href="/camp">🗓 Organize Camp</a>
+    <a href="/contact">📬 Contact Us</a>
+    <a href="/login">🔐 Login</a>
+  </div>
+</div>
+
+</nav>

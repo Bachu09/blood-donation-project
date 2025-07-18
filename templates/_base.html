@@ -1,0 +1,77 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Blood Donation{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
+    <body class="home-page layout">
+        <!-- Navbar -->
+        {% include "_navbar.html" %}
+
+        <!-- Page content -->
+        {% block content %}{% endblock %}
+
+        <!-- Footer -->
+        {% include "footer.html" %}
+
+        <!-- Back to Top Button -->
+        <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            ↑ Top
+        </button>
+
+        <script>
+            // Show/hide back to top button
+            window.onscroll = function () {
+                document.getElementById('backToTop').style.display =
+                    window.scrollY > 100 ? 'block' : 'none';
+            };
+        </script>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="popup-container">
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<style>
+  #popup-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+  }
+  .flash-message {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeOut 5s forwards;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .flash-message.error {
+    background: #f44336;
+  }
+  @keyframes fadeOut {
+    0%, 90% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+  }
+</style>
+
+<script>
+  setTimeout(() => {
+    const popup = document.querySelector('#popup-container');
+    if (popup) popup.remove();
+  }, 5000);
+</script>
+
+    </body>
+    </html>

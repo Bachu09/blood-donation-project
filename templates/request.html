@@ -1,0 +1,72 @@
+{% extends "_base.html" %}
+
+{% block title %}Request Blood | Blood Donation{% endblock %}
+
+{% block content %}
+<section class="form-section scroll-fade">
+  <div class="form-card glass-box">
+    <h2><i class="fas fa-hand-holding-medical"></i> Request Blood</h2>
+
+    <form method="POST" action="/request">
+      <div class="form-group">
+        <label for="name">Patient's Name</label>
+        <input type="text" name="name" id="name" required placeholder="Enter full name">
+      </div>
+
+      <div class="form-group">
+        <label for="blood_group">Required Blood Group</label>
+        <select name="blood_group" id="blood_group" required>
+          <option value="" disabled selected>-- Select Blood Group --</option>
+          <option>O+</option>
+          <option>O−</option>
+          <option>A+</option>
+          <option>A−</option>
+          <option>B+</option>
+          <option>B−</option>
+          <option>AB+</option>
+          <option>AB−</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" required placeholder="Location of need">
+      </div>
+
+      <div class="form-group">
+        <label for="hospital">Hospital Name</label>
+        <input type="text" name="hospital" id="hospital" required placeholder="Hospital where blood is needed">
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason</label>
+        <textarea name="reason" id="reason" rows="3" placeholder="e.g. Accident, Surgery, Emergency..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Contact Number</label>
+        <input type="tel" name="contact" id="contact" required placeholder="Phone / WhatsApp">
+      </div>
+
+      <button type="submit" class="form-btn">Submit Request</button>
+    </form>
+
+    <blockquote>
+      "A single request, a single response — a life saved. Don’t hesitate to reach out."
+    </blockquote>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector('.form-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+</script>
+{% endblock %}

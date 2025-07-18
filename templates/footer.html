@@ -1,0 +1,63 @@
+<footer class="footer scroll-fade">
+    <p>Follow us on</p>
+    <div class="social-icons">
+        <div class="icon-wrapper">
+            <a href="https://instagram.com" target="_blank">
+                <img src="{{ url_for('static', filename='instagram.png') }}" alt="Instagram">
+            </a>
+            <div class="icon-label">Instagram</div>
+        </div>
+        <div class="icon-wrapper">
+            <a href="https://twitter.com" target="_blank">
+                <img src="{{ url_for('static', filename='twitter.png') }}" alt="Twitter">
+            </a>
+            <div class="icon-label">Twitter</div>
+        </div>
+        <div class="icon-wrapper">
+            <a href="https://facebook.com" target="_blank">
+                <img src="{{ url_for('static', filename='facebook.png') }}" alt="Facebook">
+            </a>
+            <div class="icon-label">Facebook</div>
+        </div>
+        <div class="icon-wrapper">
+            <a href="http://gmail.com" target="_blank">
+                <img src="{{ url_for('static', filename='gmail.png') }}" alt="Gmail">
+            </a>
+            <div class="icon-label">Gmail</div>
+        </div>
+    </div>
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+</footer>
+
+<!-- JavaScript to toggle button -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById("backToTop");
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+   const toggleBtn = document.getElementById("menuToggle");
+  const dropdown = document.getElementById("menuDropdown");
+
+  toggleBtn.addEventListener("click", () => {
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  });
+
+  // Optional: hide menu when clicking elsewhere
+  window.addEventListener("click", function (e) {
+    if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+</script>

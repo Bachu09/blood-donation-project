@@ -1,0 +1,62 @@
+{% extends "_base.html" %}
+
+{% block title %}About Us | Blood Donation{% endblock %}
+
+{% block content %}
+<section class="info-section scroll-fade">
+    <h2>About Us</h2>
+
+    <p>
+        We are a passionate group of individuals driven by the belief that saving a life should never be limited by the availability of blood. What started as a humble initiative within our college has now evolved into a platform built to connect donors and recipients, raise awareness, and create a culture where blood donation is not an obligation—but a shared responsibility.
+    </p>
+
+    <p>
+        Every year, millions of people require blood transfusions due to accidents, surgeries, or medical conditions such as anemia and cancer. Yet, the gap between demand and availability continues to claim lives that could otherwise be saved. We decided to step up and do something about it. Our platform allows donors to register and be available when needed, enables users to organize blood donation camps, and spreads powerful messages of awareness throughout the community.
+    </p>
+
+    <h3>Our Mission</h3>
+    <p>
+        Our mission is to simplify and encourage the act of blood donation. We aim to provide a space where people can connect, learn, and contribute toward saving lives. By leveraging technology and collective effort, we want to eliminate the fear, hesitation, and misinformation that often surrounds blood donation.
+    </p>
+
+    <h3>Our Vision</h3>
+    <p>
+        We envision a society where blood is never in short supply. A future where donating blood is seen not just as an emergency act, but as a regular gesture of humanity. A world where every individual feels empowered to save a life simply by showing up and extending an arm.
+    </p>
+
+    <h3>Our Story</h3>
+    <p>
+        The idea for this project was born in a college classroom—but the motivation came from real-world needs. We witnessed firsthand the struggles of families searching for a donor during emergencies. The urgency, the panic, the helplessness—it sparked a fire in us. We wanted to create a solution that was accessible, reliable, and impactful. Thus began our journey.
+    </p>
+
+    <p>
+        We collaborated, designed, and built a system that does more than collect names. It builds trust. It builds awareness. It builds hope. Today, our platform stands as a testament to what a few committed minds can achieve when they care deeply about something larger than themselves.
+    </p>
+
+    <blockquote>
+        "You don’t have to be a doctor to save lives — just donate blood."  
+        <br><span>— Unknown</span>
+    </blockquote>
+</section>
+
+<script>
+    const section = document.querySelector('.info-section');
+    const elements = section.querySelectorAll('p, h3, blockquote');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = 1;
+                        el.style.animationDelay = `${index * 0.2}s`;
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+</script>
+{% endblock %}

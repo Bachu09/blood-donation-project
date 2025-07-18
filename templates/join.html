@@ -1,0 +1,69 @@
+{% extends "_base.html" %}
+
+{% block title %}Join Us | Blood Donation{% endblock %}
+
+{% block content %}
+<section class="form-section scroll-fade">
+    <div class="form-card glass-box">
+        <h2>Join as a Volunteer</h2>
+        <p>Be a part of our mission to save lives. Help organize camps, spread awareness, or support us online/offline.</p>
+
+        <form method="POST" action="/join">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" placeholder="Enter your city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Enter your contact number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interest">Area of Interest</label>
+                <select name="interest" id="interest" required>
+                    <option value="" disabled selected>-- Select Area --</option>
+                    <option value="Awareness">Awareness Campaigns</option>
+                    <option value="Camps">Organizing Donation Camps</option>
+                    <option value="Tech">Technical/Website Support</option>
+                    <option value="Design">Design & Media</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Why do you want to join us?</label>
+                <textarea name="message" id="message" placeholder="Write your motivation..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-btn">Submit</button>
+        </form>
+
+        <blockquote>
+            "Volunteers don't get paid — not because they're worthless, but because they're priceless."
+        </blockquote>
+    </div>
+</section>
+
+<script>
+    const section = document.querySelector('.form-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                section.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+</script>
+{% endblock %}

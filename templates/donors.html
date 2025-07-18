@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+
+{% block title %}View Donors | Blood Donation{% endblock %}
+
+{% block content %}
+<section class="donor-section scroll-fade">
+  <div class="form-card glass-box">
+    <h2>Our Registered Donors</h2>
+
+    <form method="GET" action="/donors" class="form-inline">
+      <div class="form-group">
+        <input type="text" name="search" id="search" placeholder="Search by name, city, or blood group" value="{{ request.args.get('search', '') }}">
+        <button type="submit" class="form-btn">Search</button>
+      </div>
+    </form>
+
+    {% if donors %}
+    <div class="donor-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Blood Group</th>
+            <th>City</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for donor in donors %}
+          <tr>
+            <td>{{ donor.name }}</td>
+            <td>{{ donor.blood_group }}</td>
+            <td>{{ donor.city }}</td>
+            <td>{{ donor.contact }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p>No donors have registered yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector('.donor-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+</script>
+{% endblock %}
